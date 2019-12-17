@@ -1,0 +1,96 @@
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<title>VueJS Project</title>
+
+<link href="styles.css" rel="stylesheet" />
+
+<script src="https://unpkg.com/vue"></script>
+
+</head>
+
+<body class="body">
+    
+    <div id="vue-app">
+
+            <p>{{nome}}</p>
+            <hr>
+            <p>{{ocupacao}}</p>
+            <hr>
+            <p>{{saudacao()}}</p>
+            <hr>
+            <p>{{soma(3, 7)}}</p>
+            <hr>
+
+            <a v-bind:href="site" >
+                Acesse o Link
+            </a>
+
+            <hr>
+
+            <p>
+                <button v-on:click="counter += 10">Adiciona 10</button>
+                <button v-on:click="adicionar()" v-on:dblclick="counter += 10">Adiciona 1</button>
+            </p>
+            <p>
+                <button v-on:click="counter -= 10">Subtrair 10</button>
+                <button v-on:click="excluir()" v-on:dblclick="counter -= 10">Subtrair 1</button>
+            </p>
+            <p>Saldo: {{ counter }}</p>
+
+            <hr> 
+    <div class="canvas" v-on:mousemove="coordenadas($event)">
+            {{x}}, {{y}}
+    </div>
+            <hr> 
+
+            <div>
+                <label>Nome:
+                    <input type="text" v-model="nome">
+                </label>
+            </div>
+            <div>
+                <label>Cidade:
+                    <input type="text" v-model="cidade">
+                </label>
+            </div>
+            <div>{{nome}}, {{cidade}}</div>
+
+            <hr> 
+
+            <div v-bind:class="{'disponivel':Disponivel(),'nao-disponivel':!Disponivel()}" class="divBind">
+                <p>{{msgPositiva}}</p>
+                <p>Saldo: {{counter}}</p>
+            </div>
+
+            <hr> 
+
+            <div class="divBind">
+            <div>
+                <button v-on:click="mostrar01()">Mostra 1</button>
+                <button v-on:click="mostrar02()">Mostra 2</button>
+            </div>
+
+            <div v-if="mostra1">
+                <p>Aqui está o conteúdo 1.</p>
+            </div>
+
+            <div v-if="mostra2">
+                <p>Aqui está o conteúdo 2.</p>
+            </div>
+            </div>
+
+            <hr> 
+
+            <div v-for="item in items">{{item}}</div>
+
+    </div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
